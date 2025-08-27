@@ -1060,7 +1060,7 @@ static void rwnx_csa_finish(struct work_struct *ws)
 #if (LINUX_VERSION_CODE >- KERNEL_VERSION(6, 9, 0))
                 cfg80211_ch_switch_notify(vif->ndev, &csa->chandef, 0);
 #elif (LINUX_VERSION_CODE >= KERNEL_VERSION(6, 3, 0))
-                cfg80211_ch_switch_notify(vif->ndev, &csa->chandef, 0, 0);
+                cfg80211_ch_switch_notify(vif->ndev, &csa->chandef, 0);
 #elif (LINUX_VERSION_CODE >=KERNEL_VERSION(5, 19, 2))
                 cfg80211_ch_switch_notify(vif->ndev, &csa->chandef, 0);
 #else
@@ -5790,10 +5790,8 @@ send_frame:
 static
 int rwnx_cfg80211_start_radar_detection(struct wiphy *wiphy,
                                         struct net_device *dev,
-                                        struct cfg80211_chan_def *chandef
-                                    #if (LINUX_VERSION_CODE >= KERNEL_VERSION(3, 15, 0))
-                                        , u32 cac_time_ms
-                                    #endif
+                                        struct cfg80211_chan_def *chandef,
+                                        u32 cac_time_ms, int link_id
                                         )
 {
     struct rwnx_hw *rwnx_hw = wiphy_priv(wiphy);
