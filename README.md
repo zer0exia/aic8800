@@ -15,7 +15,7 @@ Before starting, ensure that you have the necessary dependencies:
 First, clone the **AIC8800-DKMS** repository from GitHub to your local machine:
 
 ```bash
-git clone https://github.com/geniuskidkanyi/aic8800
+git clone https://github.com/zer0exia/aic8800
 ```
 
 Navigate to the downloaded directory:
